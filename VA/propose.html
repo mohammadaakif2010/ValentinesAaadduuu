@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose Day | Transmission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="rose-bg">
+    <div class="overlay"></div>
+
+    <a href="index.html" class="back-btn">← TERMINAL</a>
+
+    <main class="rose-content">
+        <div class="rose-hero">
+            <h1>
+                A Question Still <span class="highlight">Waiting</span>.
+            </h1>
+
+            <p class="transmission-code">TEMPORAL_LOG // DAY_02</p>
+
+            <div class="rose-visual-container">
+                <div class="rose-visual">
+                    <div class="shadow-glow"></div>
+
+                    <div class="stopwatch">
+                        <div id="timeDisplay">00000<b>d</b> 00<b>h</b> 00<b>m</b> 00<b>s</b></div>
+                        <span class="since-text">
+                            RUNNING SINCE 10 NOVEMBER 2023
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mystery-box">
+                <button id="revealBtn" class="action-btn">
+                    DECRYPT MESSAGE
+                </button>
+
+                <p id="hiddenMessage" class="secret-text">
+                    <b>PLEASE READ IT ALL, PLEASEE</b>
+                    <br><br>
+                  I want you to listen to me once, calmly, without fear or pressure. This is not a complaint or an argument. This is just me explaining what we were, what we became, and why I am still standing here.
+<br><br>
+When we first met, we were both new students. Quiet. Not very social. That’s why we became close so easily. I still remember meeting you outside the activity room after the summer vacation, waiting for our ID card photographs. Everything started simply and honestly.
+<br><br>
+You had just come out of a breakup. You took me with you everywhere, and at that time, I didn’t question anything. I was just there for you.
+<br><br>
+One night, lying on my bunk bed and staring at the blue light of an adapter, I realized I had fallen in love with you. It wasn’t planned. It just happened.
+<br><br>
+On 10 November 2023, I gathered all my courage and proposed to you. The next day was Bal Mela. That same evening, you asked me what you should wear under your pink top, and I suggested dark blue jeans. On 11 November, when I saw you in formals at Bal Mela, the feeling was unexplainable. That moment still lives with me.
+<br><br>
+On 17 November 2023, you told me we couldn’t be together because of caste differences — you being Hindu and me being Muslim. I understood how heavy that was. Still, I waited.
+<br><br>
+On your birthday, 8 July 2024, I proposed again. You said, “I love you too, as a friend.” That broke me, but I stayed, because my feelings didn’t suddenly disappear.
+<br><br>
+On my birthday, 20 July 2024, you gave me a small, beautiful foldable table lamp. I still have it. Even now, when I see its light, it reminds me of how quietly you were present in my life, even when we weren’t together.
+<br><br>
+On 2 August 2024, you gave me that black friendship band. I kept it with me always. I held onto it like a promise. Even when it broke, I felt guilty, as if I had failed to protect something important. Recently, I lost it, and that loss hit me harder than I expected. It brought back a deep guilt, not because of the band itself, but because of what it meant to me.
+<br><br>
+When you were leaving school, on my last exam day, I wanted to celebrate with you. I was fasting because of Ramadan, so I let the moment pass. I wanted to hug you, but I didn’t. I chose respect over impulse.
+<br><br>
+We stayed friends. We kept talking.
+<br><br>
+You came back to visit on 27 November 2025 near Navratri. Later, on 2 October 2025, I proposed again. When you said yes, I was honestly in shock. I couldn’t believe it. On 3 October, when you wished me “Boyfriend Day,” that’s when it finally felt real to me.
+<br><br>
+For a while, we were genuinely happy.
+
+Then things slowly changed. Replies became late. Reels stopped. Conversations turned dry. On 24 December 2025, your maternal aunt — who is herself an astrologer — found out about us. Because we belong to different castes, the relationship was opposed, and you were asked to end it.
+
+That day broke me completely. I cried in front of my entire family. I didn’t hide anything. Instead of stopping me, they supported me. They stood by me. That’s how real this was for me.
+
+Even after everything ended, I stayed. We kept talking. Asking about food, about our days. But inside, I was hurting.
+<br><br>
+“Wo hokar bhi nahi hai.”<br>
+“Aisi zindagi ka kya, jisme tum zindagi mein hokar meri zindagi na ban sako.”<br>
+<br><br>
+On 4 February, I proposed again. Not because I don’t understand reality, but because my feelings were still true. You said you need time.
+<br><br>
+I am not asking you to fight your family alone. I am not asking for impulsive decisions. I am asking you to look at the consistency, the respect, and the honesty with which I loved you. I never treated this as a phase.
+
+Some things are not measured by how easy they are, but by how sincerely they are held.
+
+I am still here, not to pressure you, but to tell you this clearly: I didn’t love you for moments. I loved you for the long run.
+<br><br>
+And if even a small part of you feels that this was real — not just emotion, but something rare — then don’t close the door yet. Let’s not let fear be the only thing that decides our story.
+<br><br>
+<b>Please reply back on reading it on whatsapp, and if you feel uneasy leave it. But really I genuinely LOVE YOU.</b>
+</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Stopwatch start point: 4 February 2026, 00:00:00
+        const startTime = new Date(2023, 11, 10, 0, 0, 0).getTime();
+
+        function updateStopwatch() {
+            const now = Date.now();
+            let elapsed = Math.abs(now - startTime);
+
+            const seconds = Math.floor(elapsed / 1000) % 60;
+            const minutes = Math.floor(elapsed / (1000 * 60)) % 60;
+            const hours = Math.floor(elapsed / (1000 * 60 * 60)) % 24;
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+
+            document.getElementById("timeDisplay").textContent =
+                `${String(days).padStart(5, "0")}d ` +
+                `${String(hours).padStart(2, "0")}h ` +
+                `${String(minutes).padStart(2, "0")}m ` +
+                `${String(seconds).padStart(2, "0")}s`;
+        }
+
+        updateStopwatch();
+        setInterval(updateStopwatch, 1000);
+
+        const revealBtn = document.getElementById("revealBtn");
+        const hiddenMsg = document.getElementById("hiddenMessage");
+
+        revealBtn.addEventListener("click", () => {
+            hiddenMsg.classList.toggle("show");
+            revealBtn.innerText = hiddenMsg.classList.contains("show")
+                ? "DECRYPTED"
+                : "DECRYPT MESSAGE";
+        });
+    </script>
+</body>
+</html>
