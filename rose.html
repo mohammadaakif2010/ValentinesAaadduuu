@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Day | Transmission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="rose-bg">
+    <div class="overlay"></div>
+
+    <a href="index.html" class="back-btn">← TERMINAL</a>
+
+    <main class="rose-content">
+        <div class="rose-hero">
+            <h1 class="fade-in">
+                A Rose for a <span class="highlight">Secret</span>.
+            </h1>
+
+            <p class="transmission-code">ENCRYPTED_FILE // DAY_01</p>
+
+            <div class="rose-visual-container">
+                <div class="rose-visual">
+                    <div class="shadow-glow"></div>
+                    <img
+                        src="https://i.ibb.co/7xjM2jSr/Gemini-Generated-Image-cft0k9cft0k9cft0.png"
+                        alt="The Dark Rose"
+                        class="rose-img"
+                    >
+                </div>
+            </div>
+
+            <div class="mystery-box">
+                <button id="revealBtn" class="action-btn">
+                    DECRYPT MESSAGE
+                </button>
+
+                <p id="hiddenMessage" class="secret-text">
+On Rose Day, roses blush when you pass by, Adyasha, my Aaadduuu,
+Because every heartbeat I own has learned its rhythm from you.
+In your smile, mornings wake; in your laugh, evenings stay,
+You are my always, my poetry, my forever in every way. 🌹                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const revealBtn = document.getElementById("revealBtn");
+        const hiddenMsg = document.getElementById("hiddenMessage");
+
+        revealBtn.addEventListener("click", () => {
+            hiddenMsg.classList.toggle("show");
+            revealBtn.innerText = hiddenMsg.classList.contains("show")
+                ? "DECRYPTED"
+                : "DECRYPT MESSAGE";
+        });
+    </script>
+</body>
+</html>

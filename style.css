@@ -1,0 +1,237 @@
+:root {
+    --bg-dark: #070707;
+    --rose-red: #9b111e;
+    --gold: #b39055;
+    --text-dim: #666;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    overflow-x: hidden;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, transparent 30%, black 120%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* HUB */
+
+.vault-container {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+.glitch-text {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    color: var(--gold);
+    text-shadow: 2px 2px black;
+}
+
+.active-text {
+    color: var(--rose-red);
+    text-transform: uppercase;
+}
+
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.day-btn {
+    text-decoration: none;
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.day-btn.active {
+    border-color: var(--rose-red);
+    box-shadow: 0 0 15px rgba(155, 17, 30, 0.25);
+}
+
+.day-btn.active:hover {
+    background: var(--rose-red);
+    transform: translateY(-10px);
+}
+
+.day-btn.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.status {
+    margin-top: 15px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+/* ROSE PAGE */
+
+.rose-content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border: 1px solid #222;
+    padding: 6px 12px;
+    z-index: 10;
+}
+
+.highlight {
+    color: var(--rose-red);
+}
+
+.transmission-code {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+.rose-visual-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    margin: 3vh 0;
+    position: relative;
+}
+
+.rose-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ROSE IMAGE POLISH */
+
+.rose-img {
+    width: min(85vw, 420px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+
+    border-radius: 24px;
+
+    filter:
+        drop-shadow(0 0 25px rgba(155, 17, 30, 0.45))
+        contrast(1.05)
+        saturate(1.1);
+
+    animation: floatingRose 6s ease-in-out infinite;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.rose-img:hover {
+    transform: scale(1.03);
+    filter:
+        drop-shadow(0 0 35px rgba(155, 17, 30, 0.65))
+        contrast(1.1)
+        saturate(1.2);
+}
+
+/* GLOW */
+
+.shadow-glow {
+    position: absolute;
+    width: min(70vw, 380px);
+    height: min(70vw, 380px);
+
+    background: radial-gradient(
+        circle,
+        rgba(155, 17, 30, 0.35) 0%,
+        rgba(155, 17, 30, 0.15) 30%,
+        transparent 70%
+    );
+
+    filter: blur(35px);
+    z-index: -1;
+    animation: glowPulse 6s ease-in-out infinite;
+}
+
+/* INTERACTION */
+
+.action-btn {
+    background: transparent;
+    border: 1px solid var(--rose-red);
+    color: white;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: var(--rose-red);
+    box-shadow: 0 0 20px var(--rose-red);
+}
+
+.secret-text {
+    opacity: 0;
+    margin-top: 30px;
+    max-width: 420px;
+    line-height: 1.6;
+    color: var(--gold);
+    transition: opacity 2s ease;
+}
+
+.secret-text.show {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(179, 144, 85, 0.4);
+}
+
+/* ANIMATIONS */
+
+@keyframes floatingRose {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-3vh) rotate(1.5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .glitch-text {
+        font-size: 1.8rem;
+        letter-spacing: 6px;
+    }
+}
