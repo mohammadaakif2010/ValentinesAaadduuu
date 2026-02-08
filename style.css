@@ -287,3 +287,55 @@ body {
         border-radius: 18px;
     }
 }
+/* CLICK ME ORBIT */
+
+.orbit-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit-text {
+    position: absolute;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+
+    animation: orbitText 6s linear infinite;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(179, 144, 85, 0.6);
+}
+
+/* Circular floating motion */
+@keyframes orbitText {
+    0% {
+        transform: rotate(0deg) translateX(160px) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) translateX(160px) rotate(-360deg);
+        opacity: 0.4;
+    }
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .orbit-text {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    @keyframes orbitText {
+        0% {
+            transform: rotate(0deg) translateX(120px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(120px) rotate(-360deg);
+        }
+    }
+}
