@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mission: Chocolate Day</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<a href="index.html" class="back-btn">← TERMINAL</a>
+
+<section class="rose-content">
+    <div class="rose-hero">
+
+        <h1 class="glitch-text">
+            MISSION <span class="active-text">CHOCOLATE DAY</span>
+        </h1>
+
+        <div class="transmission-code">
+            TRANSMISSION :: 09-02 :: CONFIDENTIAL
+        </div>
+
+        <div class="orbit-container">
+    <span class="orbit-text">CLICK&nbsp;ME</span>
+
+    <a href="black.html" class="image-btn">
+        <img
+            src="https://i.ibb.co/PvkGtCcc/Gemini-Generated-Image-2rym692rym692rym.png"
+            alt="Chocolate Day Memory"
+            class="rose-img"
+        >
+    </a>
+</div>
+
+
+        <div class="mystery-box">
+            <button class="action-btn" onclick="decryptMessage()">
+                DECRYPT MESSAGE
+            </button>
+
+            <p id="secret" class="secret-text">
+                This isn’t just chocolate.  
+                It’s proof that sweetness is meant to be shared, even when words aren’t enough.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function decryptMessage() {
+    document.getElementById("secret").classList.add("show");
+}
+</script>
+
+</body>
+</html>
