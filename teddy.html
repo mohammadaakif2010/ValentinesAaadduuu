@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Day – Mission</title>
+
+    <!-- SAME CSS FILE AS ROSE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<a href="index.html" class="back-btn">← TERMINAL</a>
+
+<div class="rose-content">
+
+    <div style="text-align:center;">
+
+        <div class="glitch-text active-text">
+            TEDDY DAY
+        </div>
+
+        <div class="transmission-code">
+            MISSION: CATCH THE EMOTIONS
+        </div>
+
+        <!-- TEDDY ZONE -->
+        <div class="rose-visual-container">
+
+            <div class="shadow-glow"></div>
+
+            <img
+                id="teddy"
+                class="rose-img"
+                src="https://i.ibb.co/p6C9tWmW/Gemini-Generated-Image-ribfayribfayribf.png"
+                alt="Flying Teddy"
+                style="cursor:pointer; position:absolute;"
+            >
+
+        </div>
+
+        <div class="status" id="statusText">
+            CATCHES REQUIRED: 7
+        </div>
+
+        <div class="secret-text secret-flex" id="secretMessage">
+    <img 
+        src="https://i.ibb.co/p6C9tWmW/Gemini-Generated-Image-ribfayribfayribf.png"
+        alt="Cute Teddy"
+        class="secret-teddy"
+    >
+
+    <div class="secret-msg-text">
+        Yaawwwr 😭🧸<br><br>
+        You really chased me all around the screen…  
+        just like my feelings for you — messy, silly, unstoppable.<br><br>
+        I guess you caught more than just a teddy today.  
+        You caught my heart too, aaadddduuu 💗
+    </div>
+</div>
+
+    </div>
+
+</div>
+
+<!-- FUNNY SOUNDS -->
+<audio id="sound1" src="https://www.myinstants.com/media/sounds/cartoon-jump.mp3"></audio>
+<audio id="sound2" src="https://www.myinstants.com/media/sounds/boing.mp3"></audio>
+
+<script>
+    const teddy = document.getElementById("teddy");
+    const statusText = document.getElementById("statusText");
+    const secretMessage = document.getElementById("secretMessage");
+
+    const sounds = [
+        document.getElementById("sound1"),
+        document.getElementById("sound2"),
+    ];
+
+    let catches = 0;
+    const required = 7;
+    let unlocked = false;
+
+    const size = 120;
+
+    // real position
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+
+    // velocity
+    let vx = 3 + Math.random() * 2;
+    let vy = 3 + Math.random() * 2;
+
+    teddy.style.position = "fixed";
+    teddy.style.width = size + "px";
+    teddy.style.left = x + "px";
+    teddy.style.top = y + "px";
+    teddy.style.cursor = "pointer";
+
+    function playFunnySound() {
+        const sound = sounds[Math.floor(Math.random() * sounds.length)];
+        sound.currentTime = 0;
+        sound.play();
+    }
+
+    teddy.addEventListener("click", () => {
+        if (unlocked) return;
+
+        catches++;
+        playFunnySound();
+
+        // sudden escape boost
+        vx *= 1.25;
+        vy *= 1.25;
+
+        statusText.textContent =
+            `CATCHES LEFT: ${Math.max(required - catches, 0)}`;
+
+        if (catches >= required) {
+    unlocked = true;
+    statusText.textContent = "MISSION COMPLETE 🧸";
+    secretMessage.classList.add("show");
+
+    vx = 0;
+    vy = 0;
+
+    // VANISH THE TEDDY
+    teddy.classList.add("teddy-vanish");
+
+    setTimeout(() => {
+        teddy.style.display = "none";
+    }, 1200);
+}
+
+    });
+
+    function animate() {
+        if (!unlocked) {
+            x += vx;
+            y += vy;
+
+            const margin = 40; // allows partial escape
+
+            if (x < -margin || x > window.innerWidth - size + margin) {
+                vx *= -1;
+            }
+
+            if (y < -margin || y > window.innerHeight - size + margin) {
+                vy *= -1;
+            }
+
+            teddy.style.left = x + "px";
+            teddy.style.top = y + "px";
+
+            teddy.style.transform =
+                `rotate(${vx * 3}deg)`;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+        x = Math.min(x, window.innerWidth - size);
+        y = Math.min(y, window.innerHeight - size);
+    });
+</script> 
