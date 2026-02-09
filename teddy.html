@@ -89,9 +89,10 @@
     let x = Math.random() * window.innerWidth;
     let y = Math.random() * window.innerHeight;
 
-    // velocity
-    let vx = 3 + Math.random() * 2;
-    let vy = 3 + Math.random() * 2;
+   // Slower, phone-friendly speed
+let vx = 1.6 + Math.random() * 1.2;
+let vy = 1.6 + Math.random() * 1.2;
+
 
     teddy.style.position = "fixed";
     teddy.style.width = size + "px";
@@ -112,8 +113,9 @@
         playFunnySound();
 
         // sudden escape boost
-        vx *= 1.25;
-        vy *= 1.25;
+       vx *= 1.12;
+       vy *= 1.12;
+
 
         statusText.textContent =
             `CATCHES LEFT: ${Math.max(required - catches, 0)}`;
