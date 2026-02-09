@@ -339,3 +339,59 @@ body {
         }
     }
 }
+/* SECRET MESSAGE FLEX (TEDDY + TEXT) */
+
+.secret-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    animation: floatingRose 6s ease-in-out infinite;
+}
+
+.secret-teddy {
+    width: 90px;
+    height: auto;
+    flex-shrink: 0;
+
+    filter: drop-shadow(0 0 12px rgba(155, 17, 30, 0.45));
+}
+
+.secret-msg-text {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Mobile stack */
+@media (max-width: 600px) {
+    .secret-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .secret-msg-text {
+        text-align: center;
+    }
+}
+/* TEDDY VANISH AFTER MISSION */
+
+.teddy-vanish {
+    animation: teddyVanish 1.2s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes teddyVanish {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    60% {
+        opacity: 0.4;
+        transform: scale(0.7) rotate(10deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
